@@ -24,6 +24,11 @@ public class Ball : MonoBehaviour
         GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
+    void Update()
+    {
+        GetComponent<Rigidbody>().WakeUp();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         switch (collision.gameObject.tag)
