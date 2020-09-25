@@ -60,8 +60,7 @@ public class Ball : MonoBehaviour
 
     private void UpdateScore()
     {
-        Debug.Log("[P1] " + player1Goals + " - " + player2Goals + "[P2]");
-        GameObject.Find("Score").GetComponent<TextMesh>().text = "B " + player1Goals + " - " + player2Goals + " R";
+        GameObject.Find("Score").GetComponent<TextMesh>().text = player2Goals + "  -  " + player1Goals;
     }
 
     private void SetOriginalMaterials()
