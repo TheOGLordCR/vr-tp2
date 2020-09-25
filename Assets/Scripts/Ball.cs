@@ -15,6 +15,7 @@ public class Ball : MonoBehaviour
         SetOriginalMaterials();
         player1Goals = 0;
         player2Goals = 0;
+        GetComponent<Rigidbody>().sleepThreshold = 0.0f;
     }
 
     private void Reset()
@@ -60,6 +61,7 @@ public class Ball : MonoBehaviour
     private void UpdateScore()
     {
         Debug.Log("[P1] " + player1Goals + " - " + player2Goals + "[P2]");
+        GameObject.Find("Score").GetComponent<TextMesh>().text = "B " + player1Goals + " - " + player2Goals + " R";
     }
 
     private void SetOriginalMaterials()
@@ -74,5 +76,10 @@ public class Ball : MonoBehaviour
         materials[0] = primaryMaterial;
         materials[1] = secondaryMaterial;
         meshRenderer.materials = materials;
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 100), "Blue " + player1Goals + "-" + player2Goals + " Red");
     }
 }
